@@ -32,5 +32,5 @@ CodeFormater.applyTo = function (pElement)
     }
     pElement.innerHTML = codeColored;
 };
-
+NodeList.prototype.forEach = Array.prototype.forEach;
 window.addEventListener("load", CodeFormater.init, false);
