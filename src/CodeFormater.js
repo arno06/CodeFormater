@@ -8,7 +8,7 @@ var CodeFormater =
 CodeFormater.thesaurus = {
     comments:[/(\/\*\*[a-z0-9\s\*\,\'\$\.\:\#\@\/éèà!\-=\(\)]{0,}\*\*\/)/gi, /(&lt;!--[a-z0-9\s,']{0,}--&gt;)/gi],
     api:[/(alert)(\(|\s)/gi,/(console)/g,/(log)/g,/\.(parent)/g, /(new\s)/g, /(parent)/g],
-    string:[/(\"[a-z0-9\-\s:\/\.\_\|éàçâêîôè\+\=\&\?\;]*\")/gi],
+    string:[/(\"[a-z0-9\-\s:\/\.\_\|éàçâêîôè\+\=\&\?\;\!]*\")/gi],
     keyword:[/(else\s)/g,/(if(\s){0,}\()/g,/(function\s)/g,/(var\s)/g,/(\sArray[\s|\(])/g,/(return\s)/g,/(true|false)/g,/(\sextends\s)/g,/(\simplements\s)/g,/(class\s)/g,/(public\s)/g,/(private\s)/g],
     op:[/(\()/g,/(\))/g,/(\{)/g,/(\})/g,/(\])/g,/(\[)/g,/(\-&gt;)/g],
     php:[/(\&lt;\?php)/g,/(\?\&gt;)/g,/(&lt;\?)/g],
@@ -27,7 +27,7 @@ CodeFormater.applyTo = function (pElement)
         family = CodeFormater.thesaurus[i];
         for(var j=0; j<family.length; ++j)
         {
-            codeColored = codeColored.replace(family[j],"<span class='M4"+i+"'>$1</span>");
+            codeColored = codeColored.replace(family[j],"<span class='codeformater_"+i+"'>$1</span>");
         }
     }
     pElement.innerHTML = codeColored;
